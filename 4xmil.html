@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4xmil.py — Código Python</title>
+    <style>
+        body {
+            font-family: "Courier New", Courier, monospace;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        pre {
+            background: #272822;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+        h1 {
+            font-size: 1.4em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Código de <code>4xmil.py</code></h1>
+    <pre><code>from tkinter import*
+
+def calcular():
+    a=int(ECantidad.get())
+    resultado=a*4/1000
+    EResultado.delete(0,END)
+    EResultado.insert(0,resultado)
+
+gui=Tk()
+gui.geometry("340x230")
+
+LCantidad=Label(gui,text="Ingresar Cantidad de Dinero:")
+LResultado=Label(gui,text="Resultado")
+
+ECantidad=Entry(gui,width=10)
+EResultado=Entry(gui,width=20)
+
+BCalculo=Button(gui,text="4X1000",command=calcular)
+
+LCantidad.pack()
+ECantidad.pack()
+BCalculo.pack()
+LResultado.pack()
+EResultado.pack()
+
+gui.mainloop()
+    </code></pre>
+</body>
+</html>
