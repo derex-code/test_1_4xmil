@@ -3,54 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>4xmil.py — Código Python</title>
+    <title>Calculadora 4x1000</title>
     <style>
+        /* CSS: Esto reemplaza la parte de diseño visual de tkinter */
         body {
-            font-family: "Courier New", Courier, monospace;
-            background: #f5f5f5;
-            padding: 20px;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
         }
-        pre {
-            background: #272822;
-            color: #f8f8f2;
-            padding: 15px;
-            border-radius: 8px;
-            overflow-x: auto;
+        .ventana {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            width: 300px; /* Similar al geometry("340x230") */
+            text-align: center;
         }
-        h1 {
-            font-size: 1.4em;
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
             color: #333;
+        }
+        input {
+            width: 80%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .resultado-input {
+            background-color: #e9ecef;
+            color: #333;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <h1>Código de <code>4xmil.py</code></h1>
-    <pre><code>from tkinter import*
 
-def calcular():
-    a=int(ECantidad.get())
-    resultado=a*4/1000
-    EResultado.delete(0,END)
-    EResultado.insert(0,resultado)
+    <div class="ventana">
+        <label for="cantidad">Ingresar Cantidad de Dinero:</label>
+        <input type="number" id="cantidad" placeholder="0">
 
-gui=Tk()
-gui.geometry("340x230")
+        <button onclick="calcular()">4X1000</button>
 
-LCantidad=Label(gui,text="Ingresar Cantidad de Dinero:")
-LResultado=Label(gui,text="Resultado")
+        <label for="resultado">Resultado:</label>
+        <input type="text" id="resultado" class="resultado-input" readonly>
+    </div>
 
-ECantidad=Entry(gui,width=10)
-EResultado=Entry(gui,width=20)
+    <script>
+        // JavaScript: Esto reemplaza la función 'def calcular()' de Python
+        function calcular() {
+            // Obtener el valor del input (ECantidad.get())
+            var cantidad = document.getElementById('cantidad').value;
 
-BCalculo=Button(gui,text="4X1000",command=calcular)
+            // Verificar que no esté vacío
+            if (cantidad === "") {
+                alert("Por favor ingresa un número");
+                return;
+            }
 
-LCantidad.pack()
-ECantidad.pack()
-BCalculo.pack()
-LResultado.pack()
-EResultado.pack()
+            // Realizar el cálculo
+            var resultado = parseFloat(cantidad) * 4 / 1000;
 
-gui.mainloop()
-    </code></pre>
+            // Mostrar el resultado (EResultado.insert)
+            // Usamos toLocaleString para que se vea como moneda (con puntos y comas)
+            document.getElementById('resultado').value = resultado.toLocaleString('es-CO');
+        }
+    </script>
+
 </body>
 </html>
